@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-   root 'static#home'
+  root 'static#home'
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
 resources :users, controller: "users", only: [:edit, :update, :show]
+resources :listings, controller: "listings"
   # get "/users/:id(.:format)", edit_user_path 
   # post "/users/:id(.:format)", user_path
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"

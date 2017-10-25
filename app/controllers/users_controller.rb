@@ -16,12 +16,11 @@ class UsersController < Clearance::UsersController
 
 
   def show
+    render "static/home"
   end
 
 
   def edit
-
-
   end
 
   def update
@@ -34,14 +33,13 @@ class UsersController < Clearance::UsersController
     end
   end
 
-    private
-    def user_params
-      params.require(:user).permit(:email, :name) 
-    end
+  private
+  def user_params
+    params.require(:user).permit(:email, :name) 
+  end
 
-    def set_user
-          @user= User.find(params[:id])
-
-    end
+  def set_user
+    @user= User.find(params[:id])
+  end
 
 end

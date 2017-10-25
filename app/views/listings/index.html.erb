@@ -1,0 +1,16 @@
+<h1>this is index listings</h1>
+
+<% @listings.each do |k|%>
+	<h2><%= k.title%></h2>
+<p>Description: <%= k.description%></p>
+<p>Property Type: <%= k.property_type%></p>
+<p>Guests Capacity: <%= k.guests_capacity%></p>
+<p>Number of Bedrooms: <%= k.bedroom_number%></p>
+<p>Number of Bathrooms: <%= k.bathroom%></p>
+<p>Country: <%= k.country%></p>
+<p>Town/City: <%= k.town_city%></p>
+<p>Address: <%= k.address%></p>
+<p>Postcode: <%= k.postcode%></p>
+
+	<%end%>
+<%= link_to "Create a new listing", new_listing_path%>

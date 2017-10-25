@@ -1,0 +1,16 @@
+<h2>Title: <%= @listing.title%></h2>
+<p>Description: <%= @listing.description%></p>
+<p>Property Type: <%= @listing.property_type%></p>
+<p>Guests Capacity: <%= @listing.guests_capacity%></p>
+<p>Number of Bedrooms: <%= @listing.bedroom_number%></p>
+<p>Number of Bathrooms: <%= @listing.bathroom%></p>
+<p>Country: <%= @listing.country%></p>
+<p>Town/City: <%= @listing.town_city%></p>
+<p>Address: <%= @listing.address%></p>
+<p>Postcode: <%= @listing.postcode%></p>
+
+<%= link_to "Delete this listing", @listing, method: :delete, data:{confirm: "Are you sure?"}%><br>
+
+<%= link_to "Update your listing", edit_listing_path%><br>
+
+<%= link_to "See other listings", listings_path%>

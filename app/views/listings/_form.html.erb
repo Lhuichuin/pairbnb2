@@ -1,0 +1,60 @@
+<div class="form-group">
+	<%= form.label :title %>
+	<%= form.text_field :title, class: "form-control"%>
+</div>
+
+<div class="form-group">
+	<%= form.label :description %>
+	<%= form.text_field :description, class: "form-control" %>
+</div>
+
+
+<div class="form-group">
+	<%= form.label :property_type, "Property Type" %>
+	<div>
+		<%= form.label :property_type_house, "House" %>
+		<%= form.radio_button :property_type, "house" %>
+
+		<%= form.label :property_type_hotel, "Hotel" %>
+		<%= form.radio_button :property_type, "hotel" %>
+
+		<%= form.label :property_type_condominium, "Condominium" %>
+		<%= form.radio_button :property_type, "condominium" %>
+	</div>
+</div>
+
+
+<div class="form-group">
+	<%= form.label :guests_capacity, "Guest Capacity" %>
+	<%= form.text_field :guests_capacity, class: "form-control" %>
+</div>
+
+<div class="form-group">
+	<%= form.label :bedroom_number, "Number of Bedroom(s)" %>
+	<%= form.text_field :bedroom_number, class: "form-control" %>
+</div>
+
+<div class="form-group">
+	<%= form.label :bathroom, "Number of Bathroom(s)" %>
+	<%= form.text_field :bathroom, class: "form-control" %>
+</div>
+
+<div class="form-group">
+	<%= form.label :country %>
+	<%= form.text_field :country, class: "form-control" %>
+</div>
+
+<div class="form-group">
+	<%= form.label :"town_city", "Town/City" %>
+	<%= form.text_field :town_city, class: "form-control" %>
+</div>
+
+<div class="form-group">
+	<%= form.label :address %>
+	<%= form.text_field :address, class: "form-control" %>
+</div>
+
+<div class="form-group">
+	<%= form.label :postcode %>
+	<%= form.text_field :postcode, class: "form-control" %>
+</div>
