@@ -40,6 +40,30 @@
 </div>
 
 <div class="form-group">
+	<%= form.label :amenity_list, "Amenities" %>
+	<div>
+		<%= form.label :elevator_in_building, "Elevator in Building" %>
+		<%= form.check_box :amenity_list, {multiple: true, class: 'form-control'},"Elevator in Building", nil %>
+
+		<%= form.label :gym, "Gym" %>
+		<%= form.check_box :amenity_list, {multiple: true, class: 'form-control'}, "Gym", nil %>
+
+		<%= form.label :breakfast, "Breakfast" %>
+		<%= form.check_box :amenity_list,{multiple: true, class: 'form-control'}, "Breakfast", nil %>
+
+		<%= form.label :pets_allowed, "Pets Allowed" %>
+		<%= form.check_box :amenity_list,{multiple: true, class: 'form-control'},"Pets Allowed", nil %>
+
+		<%= form.label :washer, "Washer" %>
+		<%= form.check_box :amenity_list,{multiple: true, class: 'form-control'}, "Washer", nil %>
+
+		<%= form.label :wheelchair_accessible, "Wheelchair accessible" %>
+		<%= form.check_box :amenity_list,{multiple: true, class: 'form-control'}, "Wheelchair Accessible", nil %>
+	</div>
+</div>
+
+
+<div class="form-group">
 	<%= form.label :country %>
 	<%= form.text_field :country, class: "form-control" %>
 </div>
@@ -57,4 +81,9 @@
 <div class="form-group">
 	<%= form.label :postcode %>
 	<%= form.text_field :postcode, class: "form-control" %>
+</div>
+
+<div class="form-group">
+	<%= form.label :prices, "Price" %>
+	<%= form.text_field :prices, class: "form-control" %>
 </div>

@@ -4,6 +4,11 @@ class ListingsController < ApplicationController
 	def index
 		@listings= Listing.all
 		# render 'listings/index'
+		if params[:search]
+			@listings = Listing.search(params[:search]).order('created_at DESC')
+		else
+			@listings= Listing.all.order('created_at DESC')
+		end
 	end
 
 	def new
@@ -11,7 +16,7 @@ class ListingsController < ApplicationController
 	end
 
 	def create
-		
+
 		@listing= current_user.listings.new(listing_params)
 		if @listing.save
 			redirect_to @listing # listing_path(@listing) , show action
@@ -49,7 +54,7 @@ class ListingsController < ApplicationController
 
 	private
 	def listing_params
-		params.require(:listing).permit(:title, :description, :property_type, :guests_capacity, :bedroom_number, :bathroom, :country, :town_city, :address, :postcode)
+		params.require(:listing).permit(:title, :description, :property_type, :guests_capacity, :bedroom_number, :bathroom, :country, :town_city, :address, :postcode, :tag_list, amenity_list: [])
 
 	end
 
