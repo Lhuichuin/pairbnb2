@@ -24,4 +24,5 @@
 	<% render partial: 'listing', locals: { listing: listing } %>
 	<% end %> 
 </div>
+<%= will_paginate @listings %>
 <%= link_to "Create a new listing", new_listing_path%>

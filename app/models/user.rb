@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 
+ enum role: [ :customer, :moderator, :admin ]
 
 	include Clearance::User
 
@@ -7,7 +8,7 @@ class User < ApplicationRecord
 	has_many :listings
 
 	def self.create_with_auth_and_hash(authentication, auth_hash)
-byebug
+		byebug
 		user = self.create!(
 			name: auth_hash["extra"]["raw_info"]["name"],
 			email: auth_hash["extra"]["raw_info"]["email"],
@@ -22,5 +23,7 @@ byebug
   	x = self.authentications.find_by(provider: 'facebook')
   	return x.token unless x.nil?
   end
+
+  validates :email, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
 end
 

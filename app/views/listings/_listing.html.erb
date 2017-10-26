@@ -1,12 +1,17 @@
 <h2><%= listing.title %></h2>
 <p><%listing.amenities.each do |a| %>
-<%= a %>.
-<%end%></p>
-<p>Description: <%= listing.description%></p>
-<p>Property Type: <%= listing.property_type%></p>
-<p>Guests Capacity: <%= listing.guests_capacity%></p>
-<p>Number of Bedrooms: <%= listing.bedroom_number%></p>
-<p>Number of Bathrooms: <%= listing.bathroom%></p>
-<p>Location: <%= listing.town_city%>, <%= listing.postcode%>, <%= listing.country%></p>
-<p>Address: <%= listing.address%></p>
-<p>Price: <%= listing.prices%></p>
+	<%= a %>.
+	<%end%></p>
+	<p>Description: <%= listing.description%></p>
+	<p>Property Type: <%= listing.property_type%></p>
+	<p>Guests Capacity: <%= listing.guests_capacity%></p>
+	<p>Number of Bedrooms: <%= listing.bedroom_number%></p>
+	<p>Number of Bathrooms: <%= listing.bathroom%></p>
+	<p>Location: <%= listing.town_city%>, <%= listing.postcode%>, <%= listing.country%></p>
+	<p>Address: <%= listing.address%></p>
+	<p>Price: <%= listing.prices%></p>
+
+	<% if !(current_user.customer?) %>
+	<%= button_to "Verify!", "/listings/#{listing.id}/verification", :method => :get %></button>
+
+	<% end %>

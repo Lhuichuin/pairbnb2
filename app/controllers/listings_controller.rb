@@ -1,17 +1,20 @@
 class ListingsController < ApplicationController
 	before_action :require_login, except: :index
+	before_action :allowed?, only: [:verify]
 
 	def index
-		@listings= Listing.all
 		# render 'listings/index'
 		if params[:search]
 			@listings = Listing.search(params[:search]).order('created_at DESC')
 		else
 			@listings= Listing.all.order('created_at DESC')
 		end
+
+		@listings= @listings.paginate(:page => params[:page], :per_page => 5)
 	end
 
 	def new
+	
 		@listing= Listing.new
 	end
 
@@ -51,12 +54,29 @@ class ListingsController < ApplicationController
 		redirect_to @listing
 	end
 
+	
+	def verify
+		if current_user.customer?
+			flash[:notice] = "Sorry. You are not allowed to perform this action."
+			return redirect_to listings_path
+		else
+			@listing= Listing.find(params[:id])
+			@listing.update(verification: true)
+			flash[:notice] = "This property has been verified!"
+			redirect_to listings_path
+		end
+	end
+
+
 
 	private
 	def listing_params
-		params.require(:listing).permit(:title, :description, :property_type, :guests_capacity, :bedroom_number, :bathroom, :country, :town_city, :address, :postcode, :tag_list, amenity_list: [])
+		params.require(:listing).permit(:title, :description, :property_type, :guests_capacity, :bedroom_number, :bathroom, :country, :town_city, :address, :postcode, :tag_list,:prices, amenity_list: [])
 
 	end
 
+	def allowed?
+		return !current_user.customer?
+	end
 
 end
