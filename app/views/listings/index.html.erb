@@ -1,28 +1,42 @@
-<h1>this is index listings</h1>
-<div>
-	<%= form_tag(listings_path, :method => "get", id: "search-form") do %>
-	<%= text_field_tag :search, params[:search], placeholder: "Search Listings" %>
-	<%= submit_tag "Search" %>
-	<% end %>
+<div class= "container">
 
-	<% if @listings.present? %>
-	<%= render @listings %>
-	<!-- the above line is the same as the bottom 4 lines. essentially it is expecting a partials called listings. so one needs to be created.  -->
-	
-	<%# @listings.each do |listing| %>
-	<%# render partial: 'listing', locals: { listing: listing } %>
-	<%# end %>
-	<% else %>
-	<p>There are no listings containing the term(s) <%= params[:search] %>.</p>
-	<%= link_to "Back to Listings", listings_path%>
-	<% end %>
+	<!-- search bar -->
+	<div>
+		<%= form_tag(listings_path, :method => "get", id: "search-form") do %>
+		<%= text_field_tag :searchcountry, params[:searchcountry], placeholder: "Country" %>
+		<%# form_tag(listings_path, :method => "get", id: "search-form") do %>
+		<%= text_field_tag :searchtitle, params[:searchtitle], placeholder: "Title" %>
+
+		<%= submit_tag "Search" %>
+		<%# end %>
+		<% end %>
+		<!-- end of search bar -->
+
+		<% if @listings.present? %>
+		<div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<h1 class="gallery-title">Listings</h1>
+		</div>
+
+		<% @listings.each_slice(3) do |listings| %>
+		<div class='row'>
+			<% listings.each do |listing| %>
+			<div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+				<%= render partial: 'listing', locals: { listing: listing } %>
+			</div>
+			<% end %>
+		</div>
+		<% end %> 
+
+		<% else %>
+		<p>There are no listings containing the term(s) <%= params[:search] %>.</p>
+		<%= link_to "Back to Listings", listings_path%>
+		<% end %>
+	</div>
 
 </div>
-
-<div>
-	<%@listings.each do |listing| %>
-	<% render partial: 'listing', locals: { listing: listing } %>
-	<% end %> 
+<div class= "apple_pagination">
+	<%= will_paginate @listings %>
 </div>
-<%= will_paginate @listings %>
+<br>
 <%= link_to "Create a new listing", new_listing_path%>
+</div>

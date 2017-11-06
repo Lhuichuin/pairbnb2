@@ -4,17 +4,24 @@ class ListingsController < ApplicationController
 
 	def index
 		# render 'listings/index'
-		if params[:search]
-			@listings = Listing.search(params[:search]).order('created_at DESC')
+
+		respond_to do |format|
+			format.html
+			format.js
+		end
+
+# search bar
+		if params[:searchtitle] || params[:searchcountry]
+			@listings = Listing.search(params[:searchtitle], params[:searchcountry]).order('created_at DESC')
 		else
 			@listings= Listing.all.order('created_at DESC')
 		end
 
-		@listings= @listings.paginate(:page => params[:page], :per_page => 5)
+		@listings= @listings.paginate(:page => params[:page], :per_page => 12)
 	end
 
 	def new
-	
+
 		@listing= Listing.new
 	end
 
@@ -71,7 +78,7 @@ class ListingsController < ApplicationController
 
 	private
 	def listing_params
-		params.require(:listing).permit(:title, :description, :property_type, :guests_capacity, :bedroom_number, :bathroom, :country, :town_city, :address, :postcode, :tag_list,:prices, amenity_list: [])
+		params.require(:listing).permit(:title, :description, :property_type, :guests_capacity, :bedroom_number, :bathroom, :country, :town_city, :address, :postcode, :tag_list,:prices, amenity_list: [], photos: [])
 
 	end
 

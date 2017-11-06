@@ -1,105 +1,119 @@
-<div class="form-group">
-	<%= form.label :title %>
-	<%= form.text_field :title, class: "form-control"%>
-</div>
+<div class= "container">
+	<h1 class="gallery-title">Create a listing</h1>
 
-<div class="form-group">
-	<%= form.label :description %>
-	<%= form.text_field :description, class: "form-control" %>
-</div>
-
-
-<div class="form-group">
-	<%= form.label :property_type, "Property Type" %>
-	<div>
-		<%= form.label :property_type_house, "House" %>
-		<%= form.radio_button :property_type, "house" %>
-
-		<%= form.label :property_type_entire_floor, "Entire Floor" %>
-		<%= form.radio_button :property_type, "entire_floor" %>
-
-		<%= form.label :property_type_condominium, "Condominium" %>
-		<%= form.radio_button :property_type, "condominium" %>
-
-		<%= form.label :property_type_villa, "Villa" %>
-		<%= form.radio_button :property_type, "villa" %>
-
-		<%= form.label :property_type_townhouse, "Townhouse" %>
-		<%= form.radio_button :property_type, "townhouse" %>
-
-		<%= form.label :property_type_castle, "Castle" %>
-		<%= form.radio_button :property_type, "castle" %>
-
-		<%= form.label :property_type_chalet, "Chalet" %>
-		<%= form.radio_button :property_type, "chalet" %>
-
-		<%= form.label :property_type_other, "Other" %>
-		<%= form.radio_button :property_type, "other" %>
-
+	<div class="form-group">
+		<%= form.label :title %>
+		<%= form.text_field :title, class: "form-control"%>
 	</div>
-</div>
 
-
-<div class="form-group">
-	<%= form.label :guests_capacity, "Guest Capacity" %>
-	<%= form.text_field :guests_capacity, class: "form-control" %>
-</div>
-
-<div class="form-group">
-	<%= form.label :bedroom_number, "Number of Bedroom(s)" %>
-	<%= form.text_field :bedroom_number, class: "form-control" %>
-</div>
-
-<div class="form-group">
-	<%= form.label :bathroom, "Number of Bathroom(s)" %>
-	<%= form.text_field :bathroom, class: "form-control" %>
-</div>
-
-<div class="form-group">
-	<%= form.label :amenity_list, "Amenities" %>
-	<div>
-		<%= form.label :elevator_in_building, "Elevator in Building" %>
-		<%= form.check_box :amenity_list, {multiple: true, class: 'form-control'},"Elevator in Building", nil %>
-
-		<%= form.label :gym, "Gym" %>
-		<%= form.check_box :amenity_list, {multiple: true, class: 'form-control'}, "Gym", nil %>
-
-		<%= form.label :breakfast, "Breakfast" %>
-		<%= form.check_box :amenity_list,{multiple: true, class: 'form-control'}, "Breakfast", nil %>
-
-		<%= form.label :pets_allowed, "Pets Allowed" %>
-		<%= form.check_box :amenity_list,{multiple: true, class: 'form-control'},"Pets Allowed", nil %>
-
-		<%= form.label :washer, "Washer" %>
-		<%= form.check_box :amenity_list,{multiple: true, class: 'form-control'}, "Washer", nil %>
-
-		<%= form.label :wheelchair_accessible, "Wheelchair accessible" %>
-		<%= form.check_box :amenity_list,{multiple: true, class: 'form-control'}, "Wheelchair Accessible", nil %>
+	<div class="form-group">
+		<%= form.label :description %>
+		<%= form.text_field :description, class: "form-control" %>
 	</div>
-</div>
 
 
-<div class="form-group">
-	<%= form.label :country %>
-	<%= form.text_field :country, class: "form-control" %>
-</div>
+	<div class="form-group">
+		<%= form.label :property_type, "Property Type" %>
+		<div>
+			<%= form.label :property_type_house, "House" %>
+			<%= form.radio_button :property_type, "house" %>
 
-<div class="form-group">
-	<%= form.label :"town_city", "Town/City" %>
-	<%= form.text_field :town_city, class: "form-control" %>
-</div>
+			<%= form.label :property_type_entire_floor, "Entire Floor" %>
+			<%= form.radio_button :property_type, "entire_floor" %>
 
-<div class="form-group">
-	<%= form.label :address %>
-	<%= form.text_field :address, class: "form-control" %>
-</div>
+			<%= form.label :property_type_condominium, "Condominium" %>
+			<%= form.radio_button :property_type, "condominium" %>
 
-<div class="form-group">
-	<%= form.label :postcode %>
-	<%= form.text_field :postcode, class: "form-control" %>
-</div>
+			<%= form.label :property_type_villa, "Villa" %>
+			<%= form.radio_button :property_type, "villa" %>
 
-<div class="form-group">
-	<%= form.label :prices, "Price" %>
-	<%= form.text_field :prices, class: "form-control" %>
+			<%= form.label :property_type_townhouse, "Townhouse" %>
+			<%= form.radio_button :property_type, "townhouse" %>
+
+			<%= form.label :property_type_castle, "Castle" %>
+			<%= form.radio_button :property_type, "castle" %>
+
+			<%= form.label :property_type_chalet, "Chalet" %>
+			<%= form.radio_button :property_type, "chalet" %>
+
+			<%= form.label :property_type_other, "Other" %>
+			<%= form.radio_button :property_type, "other" %>
+
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<%= form.label :guests_capacity, "Guest Capacity" %>
+		<%= form.text_field :guests_capacity, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= form.label :bedroom_number, "Number of Bedroom(s)" %>
+		<%= form.text_field :bedroom_number, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= form.label :bathroom, "Number of Bathroom(s)" %>
+		<%= form.text_field :bathroom, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= form.label :amenity_list, "Amenities" %>
+		<div>
+			<%= form.label :elevator_in_building, "Elevator in Building" %>
+			<%= form.check_box :amenity_list, {multiple: true, class: 'form-check-input'},"Elevator in Building", nil %>
+
+			<%= form.label :gym, "Gym" %>
+			<%= form.check_box :amenity_list, {multiple: true, class: 'form-check-input'}, "Gym", nil %>
+
+			<%= form.label :breakfast, "Breakfast" %>
+			<%= form.check_box :amenity_list,{multiple: true, class: 'form-check-input'}, "Breakfast", nil %>
+
+			<%= form.label :pets_allowed, "Pets Allowed" %>
+			<%= form.check_box :amenity_list,{multiple: true, class: 'form-check-input'},"Pets Allowed", nil %>
+
+			<%= form.label :washer, "Washer" %>
+			<%= form.check_box :amenity_list,{multiple: true, class: 'form-check-input'}, "Washer", nil %>
+
+			<%= form.label :wheelchair_accessible, "Wheelchair accessible" %>
+			<%= form.check_box :amenity_list,{multiple: true, class: 'form-check-input'}, "Wheelchair Accessible", nil %>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<%= form.label :country %>
+		<%= form.text_field :country, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= form.label :"town_city", "Town/City" %>
+		<%= form.text_field :town_city, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= form.label :address %>
+		<%= form.text_field :address, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= form.label :postcode %>
+		<%= form.text_field :postcode, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= form.label :prices, "Price" %>
+		<%= form.text_field :prices, class: "form-control" %>
+	</div>
+
+	<label class="custom-file">
+		<%= form.file_field :photos, multiple: true %>
+		<span class="custom-file-control"></span>
+	</label><br>
+
+	
+		<%= form.submit :"Create a Listing", class: "btn btn-primary btn-lg" %>
+	
+
 </div>

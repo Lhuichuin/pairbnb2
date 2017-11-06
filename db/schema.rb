@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026080032) do
+ActiveRecord::Schema.define(version: 20171030030944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,18 @@ ActiveRecord::Schema.define(version: 20171026080032) do
     t.string "amenities"
     t.string "prices"
     t.boolean "verification"
+    t.json "photos"
     t.index ["user_id"], name: "index_listings_on_user_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "listing_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "number_of_guests"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -81,6 +92,7 @@ ActiveRecord::Schema.define(version: 20171026080032) do
     t.string "remember_token", limit: 128, null: false
     t.string "name"
     t.integer "role", default: 0
+    t.json "photo"
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end

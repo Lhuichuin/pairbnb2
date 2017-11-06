@@ -4,6 +4,16 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+
+gem 'unicorn'
+gem 'foreman'
+gem 'rails_12factor'
+gem 'filterrific'
+gem 'sidekiq'
+gem 'letter_opener', :group => :development
+gem 'braintree'
+gem 'mini_magick'
+gem 'fog-aws'
 gem 'carrierwave', '~> 1.0'
 gem 'will_paginate', '~> 3.1.1'
 gem 'faker'

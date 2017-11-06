@@ -1,0 +1,8 @@
+
+<h2>Congratulations!</h2><br>
+<%= @reservation.listing.title %>has been reserved for you!<br>
+Start Date: <%= @reservation.start_date %><br>
+End Date: <%= @reservation.end_date %><br>
+
+<%= link_to "Make Payment", braintree_new_path %><br>
+<%= link_to "see other listings", listings_path%>
